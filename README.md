@@ -18,5 +18,4 @@ This is a front-end e-commerce website developed using:
 2. Open index.html in browser
 
 ## Developed By
-Prathmesh Kumbar
-# ecom_website
+Shivani Biradar
