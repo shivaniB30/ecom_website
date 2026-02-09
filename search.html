@@ -1,0 +1,34 @@
+<nav>
+  <a href="index.html">Home</a>
+  <a href="products.html">Products</a>
+  <a href="cart.html">Cart</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="search.html">Search</a>
+</nav>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<input type="text" id="search" placeholder="Search product">
+<div id="result"></div>
+
+<script src="js/main.js"></script>
+<script>
+  document.getElementById("search").addEventListener("keyup", function() {
+    const value = this.value.toLowerCase();
+    document.getElementById("result").innerHTML = "";
+
+    products.filter(p => p.name.toLowerCase().includes(value))
+      .forEach(p => {
+        document.getElementById("result").innerHTML += `<p>${p.name}</p>`;
+      });
+  });
+</script>
+
+</body>
+</html>

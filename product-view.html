@@ -1,0 +1,45 @@
+<nav>
+  <a href="index.html">Home</a>
+  <a href="products.html">Products</a>
+  <a href="cart.html">Cart</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="search.html">Search</a>
+</nav>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product View</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="products.html">Products</a>
+  <a href="cart.html">Cart</a>
+</nav>
+
+<div class="container" id="productDetails"></div>
+
+<script src="js/main.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get("id"));
+
+  const product = products.find(p => p.id === id);
+  const div = document.getElementById("productDetails");
+
+  div.innerHTML = `
+    <h2>${product.name}</h2>
+    <img src="${product.image}" width="200">
+    <p>Price: ₹${product.price}</p>
+    <p>Rating: ⭐⭐⭐⭐☆</p>
+    <button onclick="addToCart(${product.id})">Add to Cart</button>
+  `;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Category</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="products.html">Products</a>
+</nav>
+
+<div class="container">
+  <h2 id="categoryTitle"></h2>
+  <div class="products" id="categoryProducts"></div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const cat = params.get("cat");
+
+  document.getElementById("categoryTitle").innerText = cat;
+
+  const filtered = products.filter(p => p.category === cat);
+  const div = document.getElementById("categoryProducts");
+
+  filtered.forEach(p => {
+    div.innerHTML += `
+      <div class="card">
+        <img src="${p.image}">
+        <h4>${p.name}</h4>
+        <p>₹${p.price}</p>
+      </div>
+    `;
+  });
+</script>
+
+</body>
+</html>
